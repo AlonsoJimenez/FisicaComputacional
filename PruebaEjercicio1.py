@@ -1,5 +1,7 @@
 #define:
 
+
+#Funcion principal para ejecucion del codigo
 def trapezoide(limiteI, limiteS, n):
     vecPesos = pesos(limiteS, limiteI, n)
     h = (limiteS-limiteI)/n
@@ -9,8 +11,6 @@ def trapezoide(limiteI, limiteS, n):
         resultado += funcion(empieza)*vecPesos[i]
         empieza += h
     return resultado
-
-
 
 
 #La siguiente funcion evalua y consigue el vector de pesos para el trapezoide
@@ -24,7 +24,6 @@ def pesos(b, a, n):
     return vectorPesos
 
 
-
 #La siguiente funcion evalua el punto x en la funcion
 def funcion(x):
     valor = x**3
@@ -33,5 +32,5 @@ def funcion(x):
 
 
 #Ejecucion del codigo
-print(trapezoide(0,3, 2500))
+print(trapezoide(0, 3, 2500))
 #%%
