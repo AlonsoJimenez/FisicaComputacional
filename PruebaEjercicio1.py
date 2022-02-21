@@ -1,36 +1,13 @@
 #define:
 
 
-#Funcion principal para ejecucion del codigo
-def trapezoide(limiteI, limiteS, n):
-    vecPesos = pesos(limiteS, limiteI, n)
-    h = (limiteS-limiteI)/n
-    resultado = 0
-    empieza = limiteI
-    for i in range(n+1):
-        resultado += funcion(empieza)*vecPesos[i]
-        empieza += h
+#Funcion derivacion centrada
+def centrada(x, h):
+    numerador = funcionDerivada(x + h) - funcionDerivada(x - h)
+    resultado = numerador / (2 * h)
     return resultado
 
-
-#La siguiente funcion evalua y consigue el vector de pesos para el trapezoide
-def pesos(b, a, n):
-    h = (b - a) / n
-    vectorPesos = []
-    vectorPesos += [h / 2]
-    for i in range(n-1):
-        vectorPesos += [h]
-    vectorPesos += [h/2]
-    return vectorPesos
-
-
-#La siguiente funcion evalua el punto x en la funcion
-def funcion(x):
-    valor = x**3
-    valor = 2*valor
+#Funcion encuentra el valor en la misma
+def funcionDerivada(x):
+    valor = 2*(x**3)
     return valor
-
-
-#Ejecucion del codigo
-print(trapezoide(0, 3, 2500))
-#%%
